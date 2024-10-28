@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pnindex.css') }}">
+    <title>Brain Tumor Classification</title>
+    <style>
+        #dropArea {
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px 0;
+            transition: border-color 0.3s;
+            position: relative;
+            width: 300px; /* Set a fixed width for consistency */
+        }
+
+        #uploadedImage {
+            max-width: 100%;
+            max-height: 200px; /* Set a max height for the image */
+            margin-top: 10px;
+            display: none; /* Initially hide the image */
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+
+        #classification, #confidence_score {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+   <img src="https://www.shutterstock.com/image-vector/brain-scan-vector-illustration-600w-2431506631.jpg"  alt="Health Assessment Image" style="display: block; margin: 0 auto; transition: transform 0.5s; width: 10%; cursor: pointer; border-radius: 50%;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" >
+   
+   <h1>Brain Tumor Classification</h1>
+    <form id="uploadForm" action="/brain-tumor" method="post" enctype="multipart/form-data">
+        <div id="dropArea">
+            <span id="fileName">No file chosen</span>
+            <img id="uploadedImage" alt="Uploaded Image"> <!-- Image preview -->
+        </div>
+        <input type="file" name="file" id="file" accept="image/*" required style="display: none;">
+        <button type="button" id="browseButton">Browse</button> <!-- Browse button -->
+        <button type="submit">Classify</button>
+    </form>
+    
+    <!-- Placeholder for displaying the classification result and confidence score -->
+    <div id="result">
+        <p id="classification"></p>
+        <p id="confidence_score"></p>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const uploadedImage = document.getElementById('uploadedImage');
+        const fileNameDisplay = document.getElementById('fileName');
+        const browseButton = document.getElementById('browseButton');
+
+        // Trigger the file input when the "Browse" button is clicked
+        browseButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Handle file selection
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                fileNameDisplay.textContent = file.name; // Display the name of the uploaded file
+
+                // Create a URL for the uploaded image and set it as the src for the preview
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    uploadedImage.src = event.target.result; // Set the image source to the file reader result
+                    uploadedImage.style.display = 'block'; // Show the image
+                }
+                reader.readAsDataURL(file); // Read the file as a data URL
+            }
+        });
+
+        document.getElementById('uploadForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Create a FormData object to send the file
+            const formData = new FormData(this);
+
+            // Send the file to the server using fetch
+            fetch('/brain-tumor', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json(); // Parse JSON response
+            })
+            .then(data => {
+                // Determine the classification based on the confidence score
+                let classificationMessage = data.confidence_score < 0.96 ? "Tumor not found" : "Tumor found";
+
+                // Update the result section with the classification message
+                document.getElementById('classification').innerText = classificationMessage;
+                 // Update the confidence score display
+                //  document.getElementById('confidence_score').innerText = "Confidence Score: " + (data.confidence_score * 100).toFixed(2) + "%"; // Convert to percentage
+                document.getElementById('result').style.display = 'block'; // Show the result section
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing the request: ' + error.message);
+            });
+        };
+    </script>
+</body>
+</html>

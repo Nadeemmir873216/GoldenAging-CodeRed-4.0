@@ -1,0 +1,103 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f4f4f4; /* Light gray background for contrast */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Dark text for readability */
+    margin-top: 20px;
+}
+
+/* Navigation styles */
+body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: #ffeb3b; /* Light yellow background */
+    padding: 20px; /* Increased padding for better spacing */
+    border-radius: 0; /* No rounded corners for full width */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100vw; /* Full viewport width */
+    /* Fixed position to cover entire screen */
+    top: 0; /* Stick to the top */
+    left: 0; /* Stick to the left */
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    height: 100vh; /* Full viewport height */
+    justify-content: center; /* Center items vertically */
+}
+
+
+body ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center items */
+}
+
+body li {
+    margin: 20px 0; /* Space between menu items */
+    position: relative; /* For hover effects */
+}
+
+body a {
+    text-decoration: none; /* Remove underline from links */
+    color: #6b8e23; /* Green color for link text */
+    font-size: 20px; /* Larger font size for buttons */
+    padding: 15px 25px; /* Increased padding around links for larger buttons */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+body a:hover {
+    background-color: #ffd700; /* Golden color on hover */
+    color: white; /* Change text color to white on hover */
+    transform: scale(1.1); /* Slightly scale up on hover */
+}
+
+/* Text styles */
+body .nav-text {
+    color: #333; /* Dark text for readability */
+    font-size: 24px; /* Larger font size for text */
+    margin-bottom: 20px; /* Space between text and links */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for text */
+}
+
+body .nav-text:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    color: #ff5722; /* Change color on hover */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect on hover */
+}
+
+/* Image styles */
+.menu-icon {
+    width: 50px; /* Set width for icons */
+    height: 50px; /* Set height equal to width for a circular shape */
+    border-radius: 50%; /* Make the icon circular */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    vertical-align: middle; /* Align icons with text */
+    margin-right: 8px; /* Space between icon and text */
+    transition: transform 0.3s ease; /* Smooth transition for icons */
+}
+
+body li:hover .menu-icon {
+    transform: rotate(15deg); /* Rotate icon on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack links vertically on small screens */
+        align-items: center; /* Center items */
+    }
+
+    body li {
+        margin: 10px 0; /* Space between menu items in vertical layout */
+    }
+}

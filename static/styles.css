@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff9e6; /* Soft yellow background */
+    color: #333; /* Dark text color for contrast */
+}
+
+h1, h2 {
+    color: #ffcc00; /* Bright yellow for headings */
+    text-align: center; /* Center text */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #ffffff; /* White background for list items */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Lighter shadow for depth */
+}
+
+a {
+    color: #ffcc00; /* Bright yellow for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #e6b800; /* Darker yellow on hover */
+}
+
+/* Styles for the form in index.html */
+form {
+    background: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333; /* Dark text color for labels */
+}
+
+input[type="number"],
+input[type="text"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff9e6; /* Soft yellow input background */
+    color: #333; /* Dark text in inputs */
+}
+
+input[type="submit"] {
+    background-color: #ffcc00; /* Bright yellow for submit button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+}
+
+/* Styles for the results in results.html */
+.results-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.disease-details {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 3px solid #ffcc00; /* Bright yellow border for details */
+    display: none;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #ffcc00; /* Bright yellow for back button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+    text-decoration: none;
+}
+
+button{
+    border: none;
+    color: #fff;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    padding: 10px;
+}

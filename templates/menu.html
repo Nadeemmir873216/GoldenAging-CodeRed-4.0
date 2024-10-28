@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mainmenu.css') }}"> <!-- Link to your CSS file -->
+    <style>
+        /* Ensure the body has a dark background */
+        body {
+            background-color: #ffeb3b; /* Black background */
+            color: #fff; /* White text color for contrast */
+            margin: 0; /* Remove default margin */
+            height: auto; /* Full viewport height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            font-family: Arial, sans-serif; /* Set a default font */
+        }
+
+        /* Ensure the h1 and nav elements are visible */
+        h1, .nav-text {
+            color: #fff; /* White text for contrast */
+            text-align: center; /* Center text */
+        }
+    </style>
+</head>
+<body>
+    
+       <div class="bar" style="background-color: #ffeb3b; width: 100%; height: 30px; margin: 0; display: flex; justify-content: center;">
+    <a href="#" style="color: #755000; text-decoration: none; font-size: 12px;">About</a>
+    <a href="#" style="color: #755000; text-decoration: none; font-size: 12px;">Contact</a>
+</div>
+
+<div style="height: 50px;"></div>
+
+        <div class="nav-text">Your Health Matters</div>
+        <div>
+        <ul>
+            <li>
+                <a href="{{ url_for('health_assessment') }}">
+                    <img src="https://icons.veryicon.com/png/o/business/circular-multi-color-function-icon/health-health.png" alt="Health Assessment" class="menu-icon">Go to Health Assessment
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('pneumonia') }}">
+                    <img src="https://www.shutterstock.com/image-vector/blood-test-tube-cartoon-vector-600nw-2431506631.jpg" alt="Pneumonia Classification" class="menu-icon">Go to Test Classification
+                </a>
+            </li>
+        </ul>
+        </div>
+         
+        <div><div style="background-color: #ffeb3b; width: 1000px; height: 50px; margin: 20px;"></div></div>
+       <div style="background-color: #f3c137; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); width: 100%; max-width: 1200px; margin: 20px auto; animation: fadeIn 2s;">
+    <div style="text-align: center; margin: 20px auto; animation: fadeIn 2s;">
+        <h1 style="color: #755000; animation: fadeIn 2s;">Key Features</h1>
+        <div class="key-features-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; width: 80%; margin: 20px auto; animation: fadeIn 2s;">
+            <div class="key-feature" style="background-color: #d89400; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s;">
+                <h2 style="color: #fff; text-align: center; animation: fadeIn 2s;">Health Assessment</h2>
+                <p style="color: #fff; text-align: center; animation: fadeIn 2s;">Get a comprehensive health assessment with our expert tools.</p>
+            </div>
+            <div class="key-feature" style="background-color: #4CAF50; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s;">
+                <h2 style="color: #fff; text-align: center; animation: fadeIn 2s;">Pneumonia Classification</h2>
+                <p style="color: #fff; text-align: center; animation: fadeIn 2s;">Classify pneumonia with our advanced machine learning algorithms.</p>
+            </div>
+            <div class="key-feature" style="background-color: #2196F3; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s;">
+                <h2 style="color: #fff; text-align: center; animation: fadeIn 2s;">Personalized Recommendation</h2>
+                <p style="color: #fff; text-align: center; animation: fadeIn 2s;">Get personalized health recommendations based on your assessment results.</p>
+            </div>
+            <div class="key-feature" style="background-color: #FF9800; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s;">
+                <h2 style="color: #fff; text-align: center; animation: fadeIn 2s;">More Features Coming Soon...</h2>
+                <p style="color: #fff; text-align: center; animation: fadeIn 2s;">Stay tuned for more exciting features and updates!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="background-color: #f3c137; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); width: 100%; max-width: 500px; margin: 30px auto;">
+    <div style="text-align: center; margin: 20px auto;">
+        <h1 style="color: #755000;">Team Members</h1>
+        <div class="key-features-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 80%; margin: 20px auto;">
+            <div class="key-feature" style="background-color: #ffd700; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s; transition: transform 0.5s; display: flex; justify-content: center; align-items: center; height: 80px;">
+                <h2 style="color: #755000; text-align: center;">Nadeem Ahmed</h2>
+            </div>
+            <div class="key-feature" style="background-color: #32cd32; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s; transition: transform 0.5s; display: flex; justify-content: center; align-items: center; height: 80px;">
+                <h2 style="color: #755000; text-align: center;">Israr Ahmed</h2>
+            </div>
+            <div class="key-feature" style="background-color: #1a75ff; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s; transition: transform 0.5s; display: flex; justify-content: center; align-items: center; height: 80px;">
+                <h2 style="color: #755000; text-align: center;">Tushar Mukherjee</h2>
+            </div>
+            <div class="key-feature" style="background-color: #ffa07a; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); animation: fadeIn 2s; transition: transform 0.5s; display: flex; justify-content: center; align-items: center; height: 80px;">
+                <h2 style="color: #755000; text-align: center;">Devraj Singh</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .key-feature:hover {
+        transform: scale(1.1);
+        background-color: red;
+    }
+    .key-feature:hover p {
+        opacity: 1;
+    }
+</style>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+</body>
+</html>

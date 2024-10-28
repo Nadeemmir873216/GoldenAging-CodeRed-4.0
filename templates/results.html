@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessment Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Health Assessment Results</h1>
+    
+    <h2>Individual Metrics</h2>
+    <ul>
+        {% for key, value in results.items() %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Potential Diseases</h2>
+    <ul>
+        {% if diseases %}
+            {% for disease, details in diseases.items() %}
+                <li>
+                    <a href="javascript:void(0);" onclick="toggleDetails('{{ disease|replace(' ', '_') }}')">{{ disease }}</a>
+                    <p id="{{ disease|replace(' ', '_') }}" style="display: none;">{{ details }}</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No diseases identified.</li>
+        {% endif %}
+    </ul>
+
+    <h2>Confirmation Tests</h2>
+    <ul>
+        {% if relevant_disease_info %}
+            {% for disease, info in relevant_disease_info.items() %}
+                <li>
+                    <strong>{{ disease }}:</strong>
+                    <ul>
+                        {% for test in info.confirmation_tests %}
+                            <li>{{ test }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No confirmation tests required.</li>
+        {% endif %}
+    </ul>
+
+    <!-- Preventions Section -->
+    <h2>Prevention Methods</h2>
+    <ul>
+        {% if relevant_disease_info %}
+            {% for disease, info in relevant_disease_info.items() %}
+                <li>
+                    <strong>{{ disease }}:</strong>
+                    <ul>
+                        {% for method in info.prevention %}
+                            <li>{{ method }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>No prevention methods available.</li>
+        {% endif %}
+    </ul>
+    
+
+    <a href="/health_assessment" class="back-button">Go Back</a>
+</body>
+</html>

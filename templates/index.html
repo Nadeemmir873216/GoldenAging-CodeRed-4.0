@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <img src="https://icons.veryicon.com/png/o/business/circular-multi-color-function-icon/health-health.png" alt="Health Assessment Image" style="display: block; margin: 0 auto; transition: transform 0.5s; width: 20%; cursor: pointer;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" >
+    <h1>Health Assessment Form</h1>
+
+    
+
+    <form method="POST">
+        <label for="heart_rate">Heart Rate (bpm):</label>
+        <input type="number" id="heart_rate" name="heart_rate" placeholder="e.g., 72" value="{{ default_values['heart_rate'] }}" required>
+
+        <label for="blood_pressure_systolic">Systolic Blood Pressure (mmHg):</label>
+        <input type="number" id="blood_pressure_systolic" name="blood_pressure_systolic" placeholder="e.g., 120" value="{{ default_values['blood_pressure_systolic'] }}" required>
+
+        <label for="blood_pressure_diastolic">Diastolic Blood Pressure (mmHg):</label>
+        <input type="number" id="blood_pressure_diastolic" name="blood_pressure_diastolic" placeholder="e.g., 80" value="{{ default_values['blood_pressure_diastolic'] }}" required>
+
+        <label for="respiration_rate">Respiration Rate (breaths/min):</label>
+        <input type="number" id="respiration_rate" name="respiration_rate" placeholder="e.g., 16" value="{{ default_values['respiration_rate'] }}" required>
+
+        <label for="body_temperature">Body Temperature (°F):</label>
+        <input type="number" step="0.1" id="body_temperature" name="body_temperature" placeholder="e.g., 98.6" value="{{ default_values['body_temperature'] }}" required>
+
+        <label for="blood_oxygen_level">Blood Oxygen Level (SpO2 %):</label>
+        <input type="number" step="0.1" id="blood_oxygen_level" name="blood_oxygen_level" placeholder="e.g., 95.0" value="{{ default_values['blood_oxygen_level'] }}" required>
+
+        <label for="glucose_level">Glucose Level (mg/dL):</label>
+        <input type="number" id="glucose_level" name="glucose_level" placeholder="e.g., 90" value="{{ default_values['glucose_level'] }}" required>
+
+        <label for="fasting">Are you fasting?</label>
+        <select id="fasting" name="fasting" required>
+            <option value="no" {% if default_values['fasting'] == 'no' %}selected{% endif %}>No</option>
+            <option value="yes" {% if default_values['fasting'] == 'yes' %}selected{% endif %}>Yes</option>
+        </select>
+
+        <label for="total_cholesterol">Total Cholesterol (mg/dL):</label>
+        <input type="number" id="total_cholesterol" name="total_cholesterol" placeholder="e.g., 200" value="{{ default_values['total_cholesterol'] }}" required>
+
+        <label for="ldl_cholesterol">LDL Cholesterol (mg/dL):</label>
+        <input type="number" id="ldl_cholesterol" name="ldl_cholesterol" placeholder="e.g., 130" value="{{ default_values['ldl_cholesterol'] }}" required>
+
+        <label for="hdl_cholesterol">HDL Cholesterol (mg/dL):</label>
+        <input type="number" id="hdl_cholesterol" name="hdl_cholesterol" placeholder="e.g., 50" value="{{ default_values['hdl_cholesterol'] }}" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
