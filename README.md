@@ -47,13 +47,13 @@ Python
 
 Flask
 
-Keras / TensorFlow
+Keras 
 
-Pandas, NumPy
+NumPy
 
-HTML, CSS (Frontend)
+HTML, CSS , JavaScript(Frontend)
 
-ReportLab or FPDF for PDF generation
+Pillow
 
 
 📁 Folder Structure
